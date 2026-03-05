@@ -41,4 +41,4 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./            # wajib berakhir slash
-          server-dir: /public_html/  # relative to FTP user home (wartajan)
+          server-dir: public_html/  # relative to FTP user home; no leading slash
