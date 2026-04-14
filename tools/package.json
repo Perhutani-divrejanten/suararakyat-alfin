@@ -1,22 +1,24 @@
-{
-  "name": "indonesiadaily-article-generator",
+﻿{
+  "name": "suararakyat-article-generator",
   "version": "1.0.0",
-  "description": "Generator artikel otomatis dari Google Sheets untuk Indonesia Daily",
+  "description": "Generator artikel otomatis dari Google Sheets untuk Suara Rakyat",
   "main": "generate.js",
   "scripts": {
     "generate": "node generate.js",
     "start": "node generate.js"
   },
   "keywords": [
-    "indonesiadaily",
+    "Suararakyat",
     "generator",
     "google-sheets",
     "html"
   ],
-  "author": "Indonesia Daily Team",
+  "author": "Suara Rakyat Team",
   "license": "ISC",
   "dependencies": {
     "axios": "^1.6.0",
     "handlebars": "^4.7.7"
   }
 }
+
+

@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const Handlebars = require('handlebars');
 
-const SHEETS_URL = process.env.SHEETS_URL || 'https://script.google.com/macros/s/AKfycbwxSv8HmShXP5nng9NTAVgnDgGtfzNCXh8liAgsUWjtTcvRC9KrXpr-ioWLGmultck0fw/exec';
+const SHEETS_URL = process.env.SHEETS_URL || 'https://script.google.com/macros/s/AKfycbw2SfGbp73DxRE54CJ7-THv0CA-cQwTQnISorQ6AxmMF_Fl_ueWyUMUDwsmkMXdVU5r7g/exec';
 
 const TEMPLATE_PATH = path.join(__dirname, 'template.html');
 const ARTICLES_JSON_PATH = path.resolve(__dirname, '../articles.json');
@@ -115,11 +115,16 @@ function scanLocalArticles() {
       
       // Extract first image from content
       const imagePath = extractFirstImage(content);
+
+      // Extract category from badge element
+let category = 'Lokal';
+const badgeMatch = content.match(/<a[^>]*class="badge[^"]*"[^>]*>([^<]+)<\/a>/i);
+if (badgeMatch) category = badgeMatch[1].trim();
       
       localArticles.push({
         title,
         excerpt,
-        category: 'Local',
+        category,
         date: new Date().toISOString().split('T')[0],
         image: imagePath,
         url: `article/${slug}.html`,
